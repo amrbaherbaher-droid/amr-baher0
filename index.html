@@ -107,17 +107,14 @@
 </head>
 <body class="font-cairo selection:bg-neon-green selection:text-black overflow-x-hidden relative">
 
-  <!-- Animated Background Orbs -->
   <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
     <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-neon-green/20 blur-[120px] animate-blob"></div>
     <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-neon-blue/20 blur-[150px] animate-blob-reverse" style="animation-delay: 2s;"></div>
   </div>
 
-  <!-- ================= FLOATING NAVBAR ================= -->
   <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50">
     <div class="ultra-glass rounded-full px-6 py-3 flex justify-between items-center transition-all duration-500 hover:border-white/20">
       
-      <!-- إضافة dir="ltr" لضمان قراءة الكلمة بشكل صحيح -->
       <a href="#" dir="ltr" class="font-space text-2xl font-bold tracking-tighter flex items-center gap-1">
         <span class="text-neon-green drop-shadow-[0_0_10px_rgba(0,255,136,0.8)]">Doctor</span>
         <span class="text-neon-blue drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]">Wep</span>
@@ -136,10 +133,9 @@
   </header>
 
   <main>
-    <!-- ================= HERO SECTION ================= -->
     <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-32 relative">
       
-      <!-- Developer Badge (Updated with Doctor Wep and Larger Name) -->
+      <!-- Developer Badge -->
       <div class="flex flex-col items-center gap-3 mb-8 animate-float">
         <div dir="ltr" class="font-space text-3xl md:text-4xl font-black tracking-tighter flex items-center gap-1">
           <span class="text-neon-green drop-shadow-[0_0_10px_rgba(0,255,136,0.8)]">Doctor</span>
@@ -181,7 +177,6 @@
       </div>
     </section>
 
-    <!-- ================= INFINITE MARQUEE ================= -->
     <div class="w-full overflow-hidden ultra-glass border-y border-white/5 py-4 my-10 relative flex">
       <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent z-10"></div>
       <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10"></div>
@@ -199,7 +194,6 @@
       </div>
     </div>
 
-    <!-- ================= WHY YOU NEED A WEBSITE ================= -->
     <section class="py-24 px-4 max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-black mb-4">ليه لازم يكون عندك <span class="text-neon-green">موقع إلكتروني؟</span></h2>
@@ -241,17 +235,16 @@
       </div>
     </section>
 
-    <!-- ================= BENTO GRID (PROJECTS) ================= -->
     <section id="projects" class="py-24 px-4 max-w-7xl mx-auto border-t border-white/5">
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black mb-4">أعمالي</h2>
-        <p class="text-gray-400">تصميمات بنظام Bento Grid الحديث لتجربة بصرية مبهرة.</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-4">أعمالي المميزة</h2>
+        <p class="text-gray-400">نماذج حية لمشاريع وتطبيقات ويب تم تنفيذها بأعلى جودة بنظام Bento Grid.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
         
-        <!-- Main Project (Spans 2 cols, 2 rows) -->
-        <a href="https://amrbaherbaher-droid.github.io/dr-rabbits/" target="_blank" class="ultra-glass glass-card-hover rounded-3xl p-8 col-span-1 md:col-span-2 lg:col-span-2 row-span-2 flex flex-col justify-end relative overflow-hidden group">
+        <!-- Main Project 1: Dr. Rabbits (Spans 2 cols, 2 rows) -->
+        <a href="https://amrbaherbaher-droid.github.io/dr-rabbits/" target="_blank" class="ultra-glass glass-card-hover rounded-3xl p-8 col-span-1 md:col-span-1 lg:col-span-2 row-span-2 flex flex-col justify-end relative overflow-hidden group">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
           <!-- Abstract Graphic for project -->
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] text-white/5 group-hover:scale-110 transition-transform duration-700">
@@ -264,6 +257,24 @@
             <p class="text-gray-400 text-sm mb-4">منصة تجارية متكاملة بتصميم عصري، خرائط تفاعلية، وربط ذكي لطلبات الواتساب.</p>
             <span class="inline-flex items-center gap-2 text-neon-green font-bold text-sm">
               زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Main Project 2: Showcase Portfolio (Spans 2 cols, 2 rows directly in Grid) -->
+        <a href="https://amrbaherbaher-droid.github.io/-/" target="_blank" class="ultra-glass glass-card-hover rounded-3xl p-8 col-span-1 md:col-span-1 lg:col-span-2 row-span-2 flex flex-col justify-end relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+          <!-- Abstract Graphic for project -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] text-white/5 group-hover:scale-110 transition-transform duration-700">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          
+          <div class="relative z-20">
+            <span class="bg-neon-green/20 text-neon-green text-xs font-bold px-3 py-1 rounded-full border border-neon-green/30 mb-3 inline-block">معرض الأعمال والواجهات</span>
+            <h3 class="text-3xl font-black text-white mb-2">Doctor Wep Showcase</h3>
+            <p class="text-gray-400 text-sm mb-4">مجموعة حية من الأفكار والواجهات الرقمية المبتكرة المصممة بتقنيات عالمية حديثة.</p>
+            <span class="inline-flex items-center gap-2 text-neon-blue font-bold text-sm">
+              استعراض المعرض المباشر <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </span>
           </div>
         </a>
@@ -303,9 +314,9 @@
         </div>
 
       </div>
+
     </section>
 
-    <!-- ================= REVIEWS SECTION (AWWWARDS STYLE) ================= -->
     <section id="reviews" class="py-24 px-4 relative z-10">
       <div class="max-w-7xl mx-auto">
         
@@ -381,7 +392,6 @@
       </div>
     </section>
 
-    <!-- ================= ADD REVIEW MODAL (HTML5 Dialog) ================= -->
     <dialog id="reviewModal" class="ultra-glass border border-white/10 rounded-3xl p-0 w-full max-w-md m-auto shadow-[0_0_50px_rgba(0,0,0,0.8)] text-white overflow-hidden">
       <!-- Glow effect inside modal -->
       <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-neon-blue"></div>
@@ -412,7 +422,6 @@
       </form>
     </dialog>
 
-    <!-- ================= CYBER ORDER FORM ================= -->
     <section id="order" class="py-24 px-4 relative z-10 flex justify-center">
       <div class="w-full max-w-4xl ultra-glass rounded-[2.5rem] p-8 md:p-14 relative overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
         
@@ -452,7 +461,6 @@
       </div>
     </section>
 
-    <!-- ================= QUICK CALL (FOOTER) ================= -->
     <section class="py-12 border-t border-white/5 text-center relative z-10 bg-black/50 backdrop-blur-md">
       <a href="tel:01227339227" class="inline-flex flex-col items-center group">
         <span class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white group-hover:bg-neon-blue group-hover:text-black group-hover:border-neon-blue transition-all duration-300 mb-3 shadow-[0_0_0_rgba(0,240,255,0)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]">
@@ -469,7 +477,6 @@
     <p>&copy; 2026 <span class="text-neon-green">DOCTOR</span><span class="text-neon-blue">WEP</span>. ALL RIGHTS RESERVED. CODED BY AMR IBRAHIM.</p>
   </footer>
 
-  <!-- ================= SCRIPTS ================= -->
   <script>
     // Auto-resize textarea for the cyber form
     const textarea = document.getElementById('cDetails');
@@ -541,4 +548,4 @@
   </script>
 
 </body>
-                                  </html>
+  </html>

@@ -8,7 +8,7 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Cairo for Arabic, Space Grotesk for English numbers/logos -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
@@ -28,30 +28,16 @@
             'neon-green': '#00ff88',
             'neon-blue': '#00f0ff',
             'deep-dark': '#050505',
-            'glass-white': 'rgba(255, 255, 255, 0.03)',
-            'glass-border': 'rgba(255, 255, 255, 0.08)',
           },
           animation: {
-            'blob': 'blob 10s infinite alternate',
-            'blob-reverse': 'blob-reverse 12s infinite alternate',
             'marquee': 'marquee 25s linear infinite',
             'text-shimmer': 'text-shimmer 2.5s ease-out infinite alternate',
-            'float': 'float 6s ease-in-out infinite',
+            'float': 'float 4s ease-in-out infinite',
           },
           keyframes: {
-            blob: {
-              '0%': { transform: 'translate(0px, 0px) scale(1)' },
-              '50%': { transform: 'translate(50px, -50px) scale(1.2)' },
-              '100%': { transform: 'translate(-50px, 20px) scale(0.9)' },
-            },
-            'blob-reverse': {
-              '0%': { transform: 'translate(0px, 0px) scale(1)' },
-              '50%': { transform: 'translate(-50px, 50px) scale(1.1)' },
-              '100%': { transform: 'translate(50px, -20px) scale(0.9)' },
-            },
             marquee: {
               '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(100%)' }, // 100% for RTL
+              '100%': { transform: 'translateX(100%)' },
             },
             'text-shimmer': {
               '0%': { backgroundPosition: '0% 50%' },
@@ -59,7 +45,7 @@
             },
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' },
+              '50%': { transform: 'translateY(-10px)' },
             }
           }
         }
@@ -73,51 +59,38 @@
       color: #fff;
     }
     /* Custom Modern Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
     ::-webkit-scrollbar-thumb:hover { background: #00ff88; }
 
-    /* Ultra Glassmorphism Utilities */
+    /* Lightweight Ultra Glassmorphism */
     .ultra-glass {
-      background: rgba(15, 15, 15, 0.4);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      background: rgba(15, 15, 15, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     
     .glass-card-hover:hover {
-      background: rgba(25, 25, 25, 0.6);
-      border-color: rgba(0, 255, 136, 0.3);
-      box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
-      transform: translateY(-5px);
+      background: rgba(25, 25, 25, 0.9);
+      border-color: rgba(0, 255, 136, 0.4);
+      transform: translateY(-3px);
     }
 
     /* Modal Backdrop */
     dialog::backdrop {
       background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(15px);
     }
-
-    /* Hide scrollbar for marquee */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="font-cairo selection:bg-neon-green selection:text-black overflow-x-hidden relative">
 
-  <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-neon-green/20 blur-[120px] animate-blob"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-neon-blue/20 blur-[150px] animate-blob-reverse" style="animation-delay: 2s;"></div>
-  </div>
-
-  <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50">
-    <div class="ultra-glass rounded-full px-6 py-3 flex justify-between items-center transition-all duration-500 hover:border-white/20">
+  <!-- ================= FLOATING NAVBAR ================= -->
+  <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl z-50">
+    <div class="ultra-glass rounded-full px-6 py-3 flex justify-between items-center shadow-lg">
       
       <a href="#" dir="ltr" class="font-space text-2xl font-bold tracking-tighter flex items-center gap-1">
-        <span class="text-neon-green drop-shadow-[0_0_10px_rgba(0,255,136,0.8)]">Doctor</span>
-        <span class="text-neon-blue drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]">Wep</span>
+        <span class="text-neon-green drop-shadow-[0_0_8px_rgba(0,255,136,0.6)]">Doctor</span>
+        <span class="text-neon-blue drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">Wep</span>
       </a>
 
       <div class="hidden md:flex items-center gap-8 text-sm font-bold text-gray-300">
@@ -125,7 +98,7 @@
         <a href="#reviews" class="hover:text-white transition-colors">آراء العملاء</a>
       </div>
 
-      <a href="https://wa.me/201227339227" target="_blank" class="bg-white text-black hover:bg-neon-green hover:scale-105 px-6 py-2.5 rounded-full text-sm font-black transition-all duration-300 flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+      <a href="https://wa.me/201227339227" target="_blank" class="bg-white text-black hover:bg-neon-green px-5 py-2 rounded-full text-sm font-black transition-all flex items-center gap-2 shadow-md">
         <i class="fa-brands fa-whatsapp text-lg"></i>
         <span>تواصل معي</span>
       </a>
@@ -133,15 +106,15 @@
   </header>
 
   <main>
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-32 relative">
+    <!-- ================= HERO SECTION ================= -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-28 relative">
       
-      <!-- Developer Badge -->
       <div class="flex flex-col items-center gap-3 mb-8 animate-float">
         <div dir="ltr" class="font-space text-3xl md:text-4xl font-black tracking-tighter flex items-center gap-1">
-          <span class="text-neon-green drop-shadow-[0_0_10px_rgba(0,255,136,0.8)]">Doctor</span>
-          <span class="text-neon-blue drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]">Wep</span>
+          <span class="text-neon-green">Doctor</span>
+          <span class="text-neon-blue">Wep</span>
         </div>
-        <div class="ultra-glass px-6 py-3 rounded-full border-neon-blue/30 text-sm md:text-base font-bold text-gray-300 flex items-center gap-3">
+        <div class="ultra-glass px-5 py-2.5 rounded-full border-neon-blue/30 text-sm md:text-base font-bold text-gray-300 flex items-center gap-3">
           <span class="relative flex h-3 w-3">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-neon-green"></span>
@@ -151,239 +124,198 @@
       </div>
 
       <!-- Main Headline -->
-      <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-black leading-[1.1] mb-6 tracking-tight text-balance">
+      <h1 class="text-4xl md:text-6xl lg:text-[5rem] font-black leading-[1.1] mb-6 tracking-tight text-balance">
         بعمل ليك صفحه ويب <br />
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-neon-green via-white to-neon-blue bg-[length:200%_auto] animate-text-shimmer">
           تساعدك ف شغلك وبراندك
         </span>
       </h1>
 
-      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+      <p class="text-gray-400 text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
         أنا مش بس بكتب كود، أنا بهندس واجهات رقمية عالمية بتخطف عين العميل وتزود مبيعاتك من أول ضغطة.
       </p>
 
       <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-5 z-10">
-        <a href="#order" class="relative group px-8 py-4 rounded-2xl bg-white text-black font-black text-lg transition-all duration-300 hover:scale-105 overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-r from-neon-green to-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <span class="relative flex items-center justify-center gap-2 group-hover:text-black">
+      <div class="flex flex-col sm:flex-row gap-4 z-10">
+        <a href="#order" class="relative group px-8 py-3.5 rounded-2xl bg-white text-black font-black text-lg transition-all hover:scale-105 overflow-hidden shadow-lg">
+          <span class="relative flex items-center justify-center gap-2">
             ابدأ مشروعك
             <i class="fa-solid fa-rocket"></i>
           </span>
         </a>
-        <a href="#projects" class="px-8 py-4 rounded-2xl ultra-glass font-bold text-lg hover:border-white/30 transition-all duration-300 flex items-center justify-center gap-2">
+        <a href="#projects" class="px-8 py-3.5 rounded-2xl ultra-glass font-bold text-lg hover:border-white/30 transition-all flex items-center justify-center gap-2">
           اكتشف أعمالي <i class="fa-solid fa-arrow-down-long text-neon-green"></i>
         </a>
       </div>
     </section>
 
-    <div class="w-full overflow-hidden ultra-glass border-y border-white/5 py-4 my-10 relative flex">
-      <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent z-10"></div>
-      <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10"></div>
-      
-      <div class="whitespace-nowrap flex gap-10 animate-marquee items-center text-gray-500 font-space font-bold text-xl md:text-3xl tracking-widest uppercase">
-        <span>UI/UX DESIGN</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
-        <span>FRONT-END MASTERY</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
-        <span>AWWWARDS LEVEL</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
-        <span>BLAZING FAST</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
-        <span>DOCTOR WEP</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
-        <!-- Duplicate for infinite loop -->
-        <span>UI/UX DESIGN</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
-        <span>FRONT-END MASTERY</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
-        <span>AWWWARDS LEVEL</span> <i class="fa-solid fa-star-of-life text-neon-green text-sm"></i>
+    <!-- ================= INFINITE MARQUEE ================= -->
+    <div class="w-full overflow-hidden ultra-glass border-y border-white/5 py-3 my-8 relative flex">
+      <div class="whitespace-nowrap flex gap-10 animate-marquee items-center text-gray-400 font-space font-bold text-lg md:text-2xl tracking-widest uppercase">
+        <span>UI/UX DESIGN</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
+        <span>FRONT-END MASTERY</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
+        <span>AWWWARDS LEVEL</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
+        <span>BLAZING FAST</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
+        <span>DOCTOR WEP</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
+        <!-- Duplicate -->
+        <span>UI/UX DESIGN</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
+        <span>FRONT-END MASTERY</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
+        <span>AWWWARDS LEVEL</span> <i class="fa-solid fa-star-of-life text-neon-green text-xs"></i>
       </div>
     </div>
 
-    <section class="py-24 px-4 max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black mb-4">ليه لازم يكون عندك <span class="text-neon-green">موقع إلكتروني؟</span></h2>
-        <p class="text-gray-400">موقعك هو موظف شغال عندك 24 ساعة، بيوفر عليك وقت ومجهود كبير جداً.</p>
+    <!-- ================= WHY YOU NEED A WEBSITE ================= -->
+    <section class="py-20 px-4 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-5xl font-black mb-3">ليه لازم يكون عندك <span class="text-neon-green">موقع إلكتروني؟</span></h2>
+        <p class="text-gray-400 text-sm md:text-base">موقعك هو موظف شغال عندك 24 ساعة، بيوفر عليك وقت ومجهود كبير جداً.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <!-- Benefit 1 -->
         <div class="ultra-glass glass-card-hover rounded-3xl p-6 flex flex-col items-center text-center group">
-          <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-3xl text-neon-green mb-4 group-hover:bg-neon-green group-hover:text-black transition-colors">
+          <div class="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center text-2xl text-neon-green mb-4 group-hover:bg-neon-green group-hover:text-black transition-colors">
             <i class="fa-solid fa-clock"></i>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2">توفير وقتك ومجهودك</h4>
-          <p class="text-gray-400 text-sm">الموقع بيرد على استفسارات العملاء المتكررة وبيوفر عليك ساعات من الشرح يومياً.</p>
+          <h4 class="text-lg font-bold text-white mb-2">توفير وقتك ومجهودك</h4>
+          <p class="text-gray-400 text-xs md:text-sm">الموقع بيرد على استفسارات العملاء المتكررة وبيوفر عليك ساعات من الشرح يومياً.</p>
         </div>
         <!-- Benefit 2 -->
         <div class="ultra-glass glass-card-hover rounded-3xl p-6 flex flex-col items-center text-center group">
-          <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-3xl text-neon-blue mb-4 group-hover:bg-neon-blue group-hover:text-black transition-colors">
+          <div class="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center text-2xl text-neon-blue mb-4 group-hover:bg-neon-blue group-hover:text-black transition-colors">
             <i class="fa-solid fa-database"></i>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2">كل بياناتك في مكان واحد</h4>
-          <p class="text-gray-400 text-sm">اعرض خدماتك، أسعارك، وطرق التواصل معاك في منصة واحدة سهلة الوصول.</p>
+          <h4 class="text-lg font-bold text-white mb-2">كل بياناتك في مكان واحد</h4>
+          <p class="text-gray-400 text-xs md:text-sm">اعرض خدماتك، أسعارك، وطرق التواصل معاك في منصة واحدة سهلة الوصول.</p>
         </div>
         <!-- Benefit 3 -->
         <div class="ultra-glass glass-card-hover rounded-3xl p-6 flex flex-col items-center text-center group">
-          <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-3xl text-white mb-4 group-hover:bg-white group-hover:text-black transition-colors">
+          <div class="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center text-2xl text-white mb-4 group-hover:bg-white group-hover:text-black transition-colors">
             <i class="fa-solid fa-earth-americas"></i>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2">شغال 24/7</h4>
-          <p class="text-gray-400 text-sm">موقعك مش بينام. بيستقبل عملاء وطلبات حتى وأنت برا وقت الشغل.</p>
+          <h4 class="text-lg font-bold text-white mb-2">شغال 24/7</h4>
+          <p class="text-gray-400 text-xs md:text-sm">موقعك مش بينام. بيستقبل عملاء وطلبات حتى وأنت برا وقت الشغل.</p>
         </div>
         <!-- Benefit 4 -->
         <div class="ultra-glass glass-card-hover rounded-3xl p-6 flex flex-col items-center text-center group">
-          <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-3xl text-neon-green mb-4 group-hover:bg-neon-green group-hover:text-black transition-colors">
+          <div class="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center text-2xl text-neon-green mb-4 group-hover:bg-neon-green group-hover:text-black transition-colors">
             <i class="fa-solid fa-ranking-star"></i>
           </div>
-          <h4 class="text-xl font-bold text-white mb-2">براند احترافي</h4>
-          <p class="text-gray-400 text-sm">بيعطي ثقة كبيرة للعميل إنك كيان قوي ومحترف مش مجرد صفحة عادية.</p>
+          <h4 class="text-lg font-bold text-white mb-2">براند احترافي</h4>
+          <p class="text-gray-400 text-xs md:text-sm">بيعطي ثقة كبيرة للعميل إنك كيان قوي ومحترف مش مجرد صفحة عادية.</p>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="py-24 px-4 max-w-7xl mx-auto border-t border-white/5">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black mb-4">أعمالي المميزة</h2>
-        <p class="text-gray-400">نماذج حية لمشاريع وتطبيقات ويب تم تنفيذها بأعلى جودة بنظام Bento Grid.</p>
+    <!-- ================= BENTO GRID (PROJECTS) ================= -->
+    <section id="projects" class="py-20 px-4 max-w-7xl mx-auto border-t border-white/5">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-5xl font-black mb-3">أعمالي</h2>
+        <p class="text-gray-400 text-sm md:text-base">تصميمات بنظام Bento Grid الحديث لتجربة بصرية مبهرة.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <!-- Main Project 1: Dr. Rabbits (Spans 2 cols, 2 rows) -->
-        <a href="https://amrbaherbaher-droid.github.io/dr-rabbits/" target="_blank" class="ultra-glass glass-card-hover rounded-3xl p-8 col-span-1 md:col-span-1 lg:col-span-2 row-span-2 flex flex-col justify-end relative overflow-hidden group">
+        <!-- Main Project (Dr. Rabbits) -->
+        <a href="https://amrbaherbaher-droid.github.io/dr-rabbits/" target="_blank" class="ultra-glass glass-card-hover rounded-3xl p-6 md:p-8 min-h-[320px] flex flex-col justify-end relative overflow-hidden group">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-          <!-- Abstract Graphic for project -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] text-white/5 group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] text-white/5">
             <i class="fa-solid fa-laptop-code"></i>
           </div>
           
           <div class="relative z-20">
             <span class="bg-neon-blue/20 text-neon-blue text-xs font-bold px-3 py-1 rounded-full border border-neon-blue/30 mb-3 inline-block">مشروع لايف</span>
-            <h3 class="text-3xl font-black text-white mb-2">Dr. Rabbits</h3>
-            <p class="text-gray-400 text-sm mb-4">منصة تجارية متكاملة بتصميم عصري، خرائط تفاعلية، وربط ذكي لطلبات الواتساب.</p>
+            <h3 class="text-2xl md:text-3xl font-black text-white mb-4">Dr. Rabbits</h3>
             <span class="inline-flex items-center gap-2 text-neon-green font-bold text-sm">
               زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </span>
           </div>
         </a>
 
-        <!-- Main Project 2: Showcase Portfolio (Spans 2 cols, 2 rows directly in Grid) -->
-        <a href="https://amrbaherbaher-droid.github.io/-/" target="_blank" class="ultra-glass glass-card-hover rounded-3xl p-8 col-span-1 md:col-span-1 lg:col-span-2 row-span-2 flex flex-col justify-end relative overflow-hidden group">
+        <!-- New Project Added (مرحومه فتحيه احمد) -->
+        <a href="https://amrbaherbaher-droid.github.io/-/" target="_blank" class="ultra-glass glass-card-hover rounded-3xl p-6 md:p-8 min-h-[320px] flex flex-col justify-end relative overflow-hidden group">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-          <!-- Abstract Graphic for project -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] text-white/5 group-hover:scale-110 transition-transform duration-700">
-            <i class="fa-solid fa-layer-group"></i>
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] text-white/5 group-hover:text-white/10 transition-colors duration-500">
+            <i class="fa-solid fa-heart"></i>
           </div>
           
           <div class="relative z-20">
-            <span class="bg-neon-green/20 text-neon-green text-xs font-bold px-3 py-1 rounded-full border border-neon-green/30 mb-3 inline-block">معرض الأعمال والواجهات</span>
-            <h3 class="text-3xl font-black text-white mb-2">مرحومه فتحيه احمد</h3>
-            <p class="text-gray-400 text-sm mb-4">مجموعة حية من الأفكار والواجهات الرقمية المبتكرة المصممة بتقنيات عالمية حديثة.</p>
+            <span class="bg-neon-green/20 text-neon-green text-xs font-bold px-3 py-1 rounded-full border border-neon-green/30 mb-3 inline-block">صدقة جارية</span>
+            <h3 class="text-2xl md:text-3xl font-black text-white mb-4">جدتي - فتحية أحمد</h3>
             <span class="inline-flex items-center gap-2 text-neon-blue font-bold text-sm">
-              استعراض المعرض المباشر <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              زيارة الموقع <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </span>
           </div>
         </a>
 
-        <!-- Feature 1 -->
-        <div class="ultra-glass rounded-3xl p-6 col-span-1 md:col-span-1 flex flex-col justify-between group">
-          <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xl text-white group-hover:bg-neon-green group-hover:text-black transition-colors">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-white mb-1">سرعة خيالية</h4>
-            <p class="text-gray-400 text-xs">أكواد محسنة بالكامل لأسرع تحميل.</p>
-          </div>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="ultra-glass rounded-3xl p-6 col-span-1 md:col-span-1 flex flex-col justify-between group">
-          <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xl text-white group-hover:bg-neon-blue group-hover:text-black transition-colors">
-            <i class="fa-solid fa-mobile-screen"></i>
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-white mb-1">تجاوب مثالي</h4>
-            <p class="text-gray-400 text-xs">يعمل بكفاءة على جميع الشاشات والموبايل.</p>
-          </div>
-        </div>
-
-        <!-- Feature 3 (Wide) -->
-        <div class="ultra-glass rounded-3xl p-6 col-span-1 md:col-span-2 flex items-center gap-6 group overflow-hidden relative">
-          <div class="absolute -right-10 top-0 w-32 h-32 bg-neon-green/10 rounded-full blur-2xl group-hover:bg-neon-green/30 transition-colors"></div>
-          <div class="text-5xl text-white/20 group-hover:text-white transition-colors">
-            <i class="fa-solid fa-ranking-star"></i>
-          </div>
-          <div>
-            <h4 class="text-2xl font-bold text-white mb-2">واجهة راقية (UI/UX)</h4>
-            <p class="text-gray-400 text-sm">تصميمات مدروسة نفسياً لتحويل الزائر إلى عميل حقيقي يثق في البراند بتاعك.</p>
-          </div>
-        </div>
-
       </div>
-
     </section>
 
-    <section id="reviews" class="py-24 px-4 relative z-10">
+    <!-- ================= REVIEWS SECTION ================= -->
+    <section id="reviews" class="py-20 px-4 relative z-10">
       <div class="max-w-7xl mx-auto">
         
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <div class="inline-flex items-center gap-2 text-neon-green font-bold text-sm mb-3">
+            <div class="inline-flex items-center gap-2 text-neon-green font-bold text-sm mb-2">
               <i class="fa-solid fa-star"></i> تقييمات موثقة
             </div>
-            <h2 class="text-4xl md:text-5xl font-black text-white mb-2">ثقة <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">42+ شريك نجاح</span></h2>
+            <h2 class="text-3xl md:text-5xl font-black text-white">ثقة <span id="reviewsCount" class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">43+ شريك نجاح</span></h2>
           </div>
           
-          <!-- Neon Add Review Button -->
-          <button onclick="document.getElementById('reviewModal').showModal()" class="group relative px-6 py-3 rounded-full bg-transparent border border-neon-green text-neon-green font-bold overflow-hidden transition-all duration-300">
-            <div class="absolute inset-0 bg-neon-green translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"></div>
-            <span class="relative flex items-center gap-2 group-hover:text-black">
+          <button onclick="document.getElementById('reviewModal').showModal()" class="group px-6 py-3 rounded-full bg-transparent border border-neon-green text-neon-green font-bold transition-all hover:bg-neon-green hover:text-black">
+            <span class="flex items-center gap-2">
               <i class="fa-solid fa-plus"></i> أضف تقييمك
             </span>
           </button>
         </div>
 
         <!-- Reviews Grid -->
-        <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
           
-          <!-- Review Card 1 -->
-          <div class="ultra-glass glass-card-hover rounded-3xl p-8 flex flex-col h-full relative">
-            <div class="absolute top-8 left-8 text-4xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
-            <div class="flex gap-1 text-neon-green text-sm mb-6">
+          <!-- Review 1 -->
+          <div class="ultra-glass glass-card-hover rounded-3xl p-6 md:p-8 flex flex-col h-full relative">
+            <div class="absolute top-6 left-6 text-3xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
+            <div class="flex gap-1 text-neon-green text-xs mb-4">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <p class="text-gray-300 text-lg font-medium leading-relaxed mb-8 flex-grow">"مستوى تصميم ماتوقعتهوش بصراحة! الموقع عالمي وسريع جداً، عمرو فاهم هو بيعمل إيه وعارف إزاي يبروز الشغل."</p>
-            <div class="flex items-center gap-4 pt-6 border-t border-white/5">
-              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-neon-green to-neon-blue flex items-center justify-center text-black font-black text-xl">م</div>
+            <p class="text-gray-300 text-base font-medium leading-relaxed mb-6 flex-grow">"عمرو عملي موقع للمحل حلو أوي، خلى شكل الشغل احترافي جداً وساعدني أعرض اللبس بطريقة شيك ومريحة للزباين."</p>
+            <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-neon-green to-neon-blue flex items-center justify-center text-black font-black">أ</div>
               <div>
-                <h4 class="text-white font-bold">م. مصطفى كمال</h4>
-                <p class="text-gray-500 text-xs">مدير شركة برمجيات <i class="fa-solid fa-circle-check text-neon-blue ml-1"></i></p>
+                <h4 class="text-white font-bold text-sm">أحمد حسن</h4>
+                <p class="text-gray-500 text-xs">صاحب محل ملابس <i class="fa-solid fa-circle-check text-neon-blue ml-1"></i></p>
               </div>
             </div>
           </div>
 
-          <!-- Review Card 2 -->
-          <div class="ultra-glass glass-card-hover rounded-3xl p-8 flex flex-col h-full relative">
-            <div class="absolute top-8 left-8 text-4xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
-            <div class="flex gap-1 text-neon-green text-sm mb-6">
+          <!-- Review 2 -->
+          <div class="ultra-glass glass-card-hover rounded-3xl p-6 md:p-8 flex flex-col h-full relative">
+            <div class="absolute top-6 left-6 text-3xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
+            <div class="flex gap-1 text-neon-green text-xs mb-4">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <p class="text-gray-300 text-lg font-medium leading-relaxed mb-8 flex-grow">"أفضل تجربة ويب ديفيلوبمنت اتعاملت معاها. الموقع مش بس شكله حلو، ده الـ User Experience فيه متدرس صح."</p>
-            <div class="flex items-center gap-4 pt-6 border-t border-white/5">
-              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border border-gray-600 flex items-center justify-center text-white font-black text-xl">أ</div>
+            <p class="text-gray-300 text-base font-medium leading-relaxed mb-6 flex-grow">"الموقع اللي عمرو عملهولي سهل عليا شغلي جداً مع الطلبة، بنزل عليه المذكرات والمحاضرات والدنيا بقت منظمة جداً وريحتني من وجع الدماغ."</p>
+            <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border border-gray-600 flex items-center justify-center text-white font-black">م</div>
               <div>
-                <h4 class="text-white font-bold">أحمد الشناوي</h4>
-                <p class="text-gray-500 text-xs">مؤسس براند تجاري <i class="fa-solid fa-circle-check text-neon-blue ml-1"></i></p>
+                <h4 class="text-white font-bold text-sm">أ. محمود طارق</h4>
+                <p class="text-gray-500 text-xs">مدرس لغة عربية <i class="fa-solid fa-circle-check text-neon-blue ml-1"></i></p>
               </div>
             </div>
           </div>
 
-          <!-- Review Card 3 -->
-          <div class="ultra-glass glass-card-hover rounded-3xl p-8 flex flex-col h-full relative">
-            <div class="absolute top-8 left-8 text-4xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
-            <div class="flex gap-1 text-neon-green text-sm mb-6">
+          <!-- Review 3 -->
+          <div class="ultra-glass glass-card-hover rounded-3xl p-6 md:p-8 flex flex-col h-full relative">
+            <div class="absolute top-6 left-6 text-3xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
+            <div class="flex gap-1 text-neon-green text-xs mb-4">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
             </div>
-            <p class="text-gray-300 text-lg font-medium leading-relaxed mb-8 flex-grow">"الكود نضيف، التسليم في الميعاد، والتصميم Awwwards Level فعلاً. شكراً يا دكتور ويب على الشغل العظمة ده."</p>
-            <div class="flex items-center gap-4 pt-6 border-t border-white/5">
-              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-black text-xl">س</div>
+            <p class="text-gray-300 text-base font-medium leading-relaxed mb-6 flex-grow">"شغل محترم جداً، عملي موقع للمطعم بتاعي خلى الطلبات أسهل بكتير. تسلم إيدك يا عمرو على السرعة والالتزام."</p>
+            <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-black">ع</div>
               <div>
-                <h4 class="text-white font-bold">سارة مجدي</h4>
-                <p class="text-gray-500 text-xs">صاحبة وكالة تسويق <i class="fa-solid fa-circle-check text-neon-blue ml-1"></i></p>
+                <h4 class="text-white font-bold text-sm">علي السيد</h4>
+                <p class="text-gray-500 text-xs">صاحب مطعم <i class="fa-solid fa-circle-check text-neon-blue ml-1"></i></p>
               </div>
             </div>
           </div>
@@ -392,109 +324,105 @@
       </div>
     </section>
 
-    <dialog id="reviewModal" class="ultra-glass border border-white/10 rounded-3xl p-0 w-full max-w-md m-auto shadow-[0_0_50px_rgba(0,0,0,0.8)] text-white overflow-hidden">
-      <!-- Glow effect inside modal -->
-      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-neon-blue"></div>
-      
-      <div class="p-6 border-b border-white/5 flex justify-between items-center bg-black/40">
-        <h3 class="text-xl font-black">أضف تقييمك</h3>
+    <!-- ================= ADD REVIEW MODAL ================= -->
+    <dialog id="reviewModal" class="ultra-glass border border-white/10 rounded-3xl p-0 w-full max-w-md m-auto shadow-2xl text-white overflow-hidden">
+      <div class="p-5 border-b border-white/5 flex justify-between items-center bg-black/60">
+        <h3 class="text-lg font-black">أضف تقييمك</h3>
         <form method="dialog">
-          <button class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-neon-green transition-colors"><i class="fa-solid fa-xmark"></i></button>
+          <button class="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-neon-green transition-colors"><i class="fa-solid fa-xmark"></i></button>
         </form>
       </div>
       
-      <form id="reviewForm" class="p-6 space-y-5 bg-black/20" onsubmit="submitRealReview(event)">
+      <form id="reviewForm" class="p-6 space-y-4 bg-black/40" onsubmit="submitRealReview(event)">
         <div>
-          <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">اسمك الكريم</label>
-          <input type="text" id="rName" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:shadow-[0_0_10px_rgba(0,255,136,0.2)] transition-all" placeholder="مثال: محمد أحمد">
+          <label class="block text-xs font-bold text-gray-400 mb-1.5 uppercase">تقييمك بالنجوم</label>
+          <div id="starPicker" class="flex gap-2 text-xl cursor-pointer text-gray-600">
+            <i class="fa-solid fa-star transition-colors hover:text-neon-green" data-value="1" onclick="setRating(1)"></i>
+            <i class="fa-solid fa-star transition-colors hover:text-neon-green" data-value="2" onclick="setRating(2)"></i>
+            <i class="fa-solid fa-star transition-colors hover:text-neon-green" data-value="3" onclick="setRating(3)"></i>
+            <i class="fa-solid fa-star transition-colors hover:text-neon-green" data-value="4" onclick="setRating(4)"></i>
+            <i class="fa-solid fa-star transition-colors hover:text-neon-green" data-value="5" onclick="setRating(5)"></i>
+          </div>
+          <input type="hidden" id="rRating" value="5">
         </div>
         <div>
-          <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">المسمى الوظيفي / النشاط</label>
-          <input type="text" id="rRole" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:shadow-[0_0_10px_rgba(0,255,136,0.2)] transition-all" placeholder="مثال: صاحب شركة كذا">
+          <label class="block text-xs font-bold text-gray-400 mb-1.5 uppercase">اسمك الكريم</label>
+          <input type="text" id="rName" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-green transition-all" placeholder="مثال: محمد أحمد">
         </div>
         <div>
-          <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">رأيك بصراحة</label>
-          <textarea id="rText" required rows="3" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:shadow-[0_0_10px_rgba(0,255,136,0.2)] transition-all resize-none" placeholder="اكتب تقييمك هنا..."></textarea>
+          <label class="block text-xs font-bold text-gray-400 mb-1.5 uppercase">المسمى الوظيفي / النشاط</label>
+          <input type="text" id="rRole" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-green transition-all" placeholder="مثال: صاحب محل ملابس">
         </div>
-        <button type="submit" class="w-full bg-neon-green text-black font-black text-lg py-4 rounded-xl hover:bg-white hover:scale-[1.02] transition-all shadow-[0_0_15px_rgba(0,255,136,0.4)]">
+        <div>
+          <label class="block text-xs font-bold text-gray-400 mb-1.5 uppercase">رأيك بصراحة</label>
+          <textarea id="rText" required rows="3" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-green transition-all resize-none" placeholder="اكتب تقييمك هنا..."></textarea>
+        </div>
+        <button type="submit" class="w-full bg-neon-green text-black font-black text-base py-3.5 rounded-xl hover:bg-white transition-all shadow-md">
           نشر التقييم الآن
         </button>
       </form>
     </dialog>
 
-    <section id="order" class="py-24 px-4 relative z-10 flex justify-center">
-      <div class="w-full max-w-4xl ultra-glass rounded-[2.5rem] p-8 md:p-14 relative overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+    <!-- ================= CYBER ORDER FORM ================= -->
+    <section id="order" class="py-20 px-4 relative z-10 flex justify-center">
+      <div class="w-full max-w-4xl ultra-glass rounded-[2rem] p-6 md:p-12 relative overflow-hidden border border-white/10 shadow-xl">
         
-        <!-- Background decorative blur inside form -->
-        <div class="absolute -top-32 -right-32 w-64 h-64 bg-neon-blue/20 rounded-full blur-[80px]"></div>
-        <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-neon-green/20 rounded-full blur-[80px]"></div>
-
-        <div class="text-center mb-12 relative z-10">
-          <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">ابدأ <span class="text-neon-green">المشروع</span></h2>
-          <p class="text-gray-400 font-medium">سيتم تحويل بياناتك لرسالة منظمة عبر واتساب لضمان سرعة التنفيذ.</p>
+        <div class="text-center mb-10 relative z-10">
+          <h2 class="text-3xl md:text-5xl font-black text-white mb-3">ابدأ <span class="text-neon-green">المشروع</span></h2>
+          <p class="text-gray-400 text-sm md:text-base font-medium">سيتم تحويل بياناتك لرسالة منظمة عبر واتساب لضمان سرعة التنفيذ.</p>
         </div>
 
-        <form onsubmit="sendCyberWhatsApp(event)" class="space-y-8 relative z-10">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="relative group">
+        <form onsubmit="sendCyberWhatsApp(event)" class="space-y-6 relative z-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="relative">
               <input type="text" id="cName" required class="peer w-full bg-transparent border-b-2 border-white/20 px-0 py-3 text-white focus:outline-none focus:border-neon-green transition-colors placeholder-transparent" placeholder="الاسم">
-              <label class="absolute right-0 top-3 text-gray-500 text-sm peer-focus:-top-4 peer-focus:text-xs peer-focus:text-neon-green peer-valid:-top-4 peer-valid:text-xs peer-valid:text-gray-400 transition-all font-bold">الاسم الكريم</label>
+              <label class="absolute right-0 top-3 text-gray-500 text-sm peer-focus:-top-4 peer-focus:text-xs peer-focus:text-neon-green peer-valid:-top-4 peer-valid:text-xs transition-all font-bold">الاسم الكريم</label>
             </div>
-            <div class="relative group">
+            <div class="relative">
               <input type="text" id="cPlace" required class="peer w-full bg-transparent border-b-2 border-white/20 px-0 py-3 text-white focus:outline-none focus:border-neon-blue transition-colors placeholder-transparent" placeholder="النشاط">
-              <label class="absolute right-0 top-3 text-gray-500 text-sm peer-focus:-top-4 peer-focus:text-xs peer-focus:text-neon-blue peer-valid:-top-4 peer-valid:text-xs peer-valid:text-gray-400 transition-all font-bold">اسم النشاط / البراند</label>
+              <label class="absolute right-0 top-3 text-gray-500 text-sm peer-focus:-top-4 peer-focus:text-xs peer-focus:text-neon-blue peer-valid:-top-4 peer-valid:text-xs transition-all font-bold">اسم النشاط / البراند</label>
             </div>
           </div>
 
-          <div class="relative group pt-4">
+          <div class="relative pt-3">
             <textarea id="cDetails" required rows="1" class="peer w-full bg-transparent border-b-2 border-white/20 px-0 py-3 text-white focus:outline-none focus:border-neon-green transition-colors placeholder-transparent resize-none overflow-hidden min-h-[40px]" placeholder="التفاصيل"></textarea>
-            <label class="absolute right-0 top-7 text-gray-500 text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-neon-green peer-valid:top-0 peer-valid:text-xs peer-valid:text-gray-400 transition-all font-bold">تفاصيل المشروع المطلوبة</label>
+            <label class="absolute right-0 top-6 text-gray-500 text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-neon-green peer-valid:top-0 peer-valid:text-xs transition-all font-bold">تفاصيل المشروع المطلوبة</label>
           </div>
 
-          <button type="submit" class="w-full group relative inline-flex items-center justify-center gap-3 bg-white text-black font-black text-xl py-5 rounded-2xl overflow-hidden transition-transform hover:scale-[1.02]">
-            <div class="absolute inset-0 w-0 bg-neon-green transition-all duration-300 ease-out group-hover:w-full"></div>
-            <span class="relative flex items-center gap-2 group-hover:text-black">
-              إرسال طلب المشروع <i class="fa-solid fa-paper-plane"></i>
-            </span>
+          <button type="submit" class="w-full relative bg-white text-black font-black text-lg py-4 rounded-xl overflow-hidden transition-all hover:bg-neon-green shadow-lg flex items-center justify-center gap-2">
+            إرسال طلب المشروع <i class="fa-solid fa-paper-plane"></i>
           </button>
         </form>
       </div>
     </section>
 
-    <section class="py-12 border-t border-white/5 text-center relative z-10 bg-black/50 backdrop-blur-md">
+    <!-- ================= QUICK CALL ================= -->
+    <section class="py-10 border-t border-white/5 text-center relative z-10 bg-black/80">
       <a href="tel:01227339227" class="inline-flex flex-col items-center group">
-        <span class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white group-hover:bg-neon-blue group-hover:text-black group-hover:border-neon-blue transition-all duration-300 mb-3 shadow-[0_0_0_rgba(0,240,255,0)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]">
+        <span class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-xl text-white group-hover:bg-neon-blue group-hover:text-black transition-all mb-2">
           <i class="fa-solid fa-phone"></i>
         </span>
-        <span class="text-sm font-bold text-gray-400 group-hover:text-white transition-colors">اتصال سريع للإستفسار</span>
-        <span class="text-xl font-space font-black text-white mt-1" dir="ltr">012 2733 9227</span>
+        <span class="text-xs font-bold text-gray-400 group-hover:text-white">اتصال سريع للإستفسار</span>
+        <span class="text-lg font-space font-black text-white mt-0.5" dir="ltr">012 2733 9227</span>
       </a>
     </section>
 
   </main>
 
-  <footer class="bg-black py-8 text-center border-t border-white/5">
-    <p class="text-gray-600 text-xs font-space font-bold uppercase tracking-widest">&copy; 2026 <span class="text-neon-green">DOCTOR</span><span class="text-neon-blue">WEP</span>. ALL RIGHTS RESERVED. CODED BY AMR IBRAHIM.</p>
-    
-    <!-- الإضافة الخاصة بالصدقة الجارية -->
-    <p class="mt-4 font-cairo text-sm text-gray-400">
-
-      <i class="fa-solid fa-hands-praying text-white/50 mr-1"></i>
-    </p>
+  <footer class="bg-black py-6 text-center text-gray-600 text-[10px] font-space font-bold uppercase tracking-widest border-t border-white/5">
+    <p>&copy; 2026 <span class="text-neon-green">DOCTOR</span><span class="text-neon-blue">WEP</span>. ALL RIGHTS RESERVED. CODED BY AMR IBRAHIM.</p>
   </footer>
 
+  <!-- ================= SCRIPTS ================= -->
   <script>
-    // Auto-resize textarea for the cyber form
     const textarea = document.getElementById('cDetails');
     textarea.addEventListener('input', function() {
       this.style.height = '40px';
       this.style.height = (this.scrollHeight) + 'px';
     });
 
-    // 1. WhatsApp Submit Logic
     function sendCyberWhatsApp(event) {
       event.preventDefault();
-      
       const name = document.getElementById('cName').value.trim();
       const place = document.getElementById('cPlace').value.trim();
       const details = document.getElementById('cDetails').value.trim();
@@ -505,52 +433,97 @@
       window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     }
 
-    // 2. Real-time Premium Review Injection
+    // Interactive Star Rating Picker
+    let currentRating = 5;
+    function setRating(rating) {
+      currentRating = rating;
+      document.getElementById('rRating').value = rating;
+      const stars = document.querySelectorAll('#starPicker i');
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.classList.remove('text-gray-600');
+          star.classList.add('text-neon-green');
+        } else {
+          star.classList.remove('text-neon-green');
+          star.classList.add('text-gray-600');
+        }
+      });
+    }
+    // Initialize stars visually on load
+    setRating(5);
+
+    // Load saved reviews from localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      let savedReviews = JSON.parse(localStorage.getItem('doctorWepReviews') || '[]');
+      let userCountIncrement = parseInt(localStorage.getItem('doctorWepCountOffset') || '0');
+      
+      // Update dynamic counter
+      document.getElementById('reviewsCount').innerText = (42 + userCountIncrement) + '+ شريك نجاح';
+
+      // Render saved user reviews to the top of the grid
+      savedReviews.forEach(rev => {
+        prependReviewCard(rev.name, rev.role, rev.text, rev.rating, false);
+      });
+    });
+
     function submitRealReview(event) {
       event.preventDefault();
-      
       const name = document.getElementById('rName').value.trim();
       const role = document.getElementById('rRole').value.trim();
       const text = document.getElementById('rText').value.trim();
-      const firstLetter = name.charAt(0);
+      const rating = parseInt(document.getElementById('rRating').value);
 
-      // Create new review card with matching Awwwards style
+      // Save to local storage
+      let savedReviews = JSON.parse(localStorage.getItem('doctorWepReviews') || '[]');
+      const newRevObj = { name, role, text, rating };
+      savedReviews.unshift(newRevObj);
+      localStorage.setItem('doctorWepReviews', JSON.stringify(savedReviews));
+
+      // Increment counter offset
+      let userCountIncrement = parseInt(localStorage.getItem('doctorWepCountOffset') || '0') + 1;
+      localStorage.setItem('doctorWepCountOffset', userCountIncrement);
+      document.getElementById('reviewsCount').innerText = (42 + userCountIncrement) + '+ شريك نجاح';
+
+      // Prepend card to UI
+      prependReviewCard(name, role, text, rating, true);
+
+      document.getElementById('reviewModal').close();
+      document.getElementById('reviewForm').reset();
+      setRating(5);
+    }
+
+    function prependReviewCard(name, role, text, rating, animate = false) {
+      const firstLetter = name.charAt(0);
+      let starsHTML = '';
+      for(let i=1; i<=5; i++) {
+        if(i <= rating) {
+          starsHTML += '<i class="fa-solid fa-star"></i>';
+        } else {
+          starsHTML += '<i class="fa-regular fa-star"></i>';
+        }
+      }
+
       const newReview = `
-        <div class="ultra-glass glass-card-hover rounded-3xl p-8 flex flex-col h-full relative" style="animation: float 4s ease-out forwards;">
-          <div class="absolute top-8 left-8 text-4xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
-          <div class="flex gap-1 text-neon-green text-sm mb-6">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <div class="ultra-glass glass-card-hover rounded-3xl p-6 md:p-8 flex flex-col h-full relative ${animate ? 'animate-pulse' : ''}">
+          <div class="absolute top-6 left-6 text-3xl text-white/5"><i class="fa-solid fa-quote-left"></i></div>
+          <div class="flex gap-1 text-neon-green text-xs mb-4">
+            ${starsHTML}
           </div>
-          <p class="text-gray-300 text-lg font-medium leading-relaxed mb-8 flex-grow">"${text}"</p>
-          <div class="flex items-center gap-4 pt-6 border-t border-white/5">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-neon-green to-neon-blue flex items-center justify-center text-black font-black text-xl shadow-[0_0_15px_rgba(0,255,136,0.3)]">
+          <p class="text-gray-300 text-base font-medium leading-relaxed mb-6 flex-grow">"${text}"</p>
+          <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-neon-green to-neon-blue flex items-center justify-center text-black font-black">
               ${firstLetter}
             </div>
             <div>
-              <h4 class="text-white font-bold">${name}</h4>
+              <h4 class="text-white font-bold text-sm">${name}</h4>
               <p class="text-gray-500 text-xs">${role} <i class="fa-solid fa-circle-check text-neon-green ml-1"></i></p>
             </div>
           </div>
         </div>
       `;
 
-      // Insert at the beginning of the grid
       document.getElementById('reviewsGrid').insertAdjacentHTML('afterbegin', newReview);
-
-      // Close and reset
-      document.getElementById('reviewModal').close();
-      document.getElementById('reviewForm').reset();
     }
-
-    // 3. Dynamic Navbar Blur on Scroll
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header > div');
-      if (window.scrollY > 50) {
-        header.classList.add('bg-black/50', 'shadow-[0_10px_30px_rgba(0,0,0,0.5)]');
-      } else {
-        header.classList.remove('bg-black/50', 'shadow-[0_10px_30px_rgba(0,0,0,0.5)]');
-      }
-    });
   </script>
 
 </body>
